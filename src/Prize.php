@@ -27,7 +27,7 @@ class Prize{
      * @param array $arr
      * @return int|false
      */
-    private function get_rand($arr){
+    private static function get_rand($arr){
         //获取奖项的总概率
         $probability = array_sum($arr);
         if($probability == 0){
@@ -51,7 +51,7 @@ class Prize{
      * @param array $field 数据中对应的键名数组
      * @return array|false
      */
-    public function init(array $data, $field = array('id','prize','v')){
+    public static function init(array $data, $field = array('id','prize','v')){
         if(count($data) <= 0) {
             return false;
         }
@@ -59,9 +59,9 @@ class Prize{
         //数据重组成一维数组，随机返回获取奖项id
         $prize = array();
         foreach ($data as $key => $val){
-            $prize[$val[$field[0]]] = $val[$field[2]];
+            $prize[$key] = $val[$field[2]];
         }
-        $prize_id = $this->get_rand($prize);
+        $prize_id = self::get_rand($prize);
         $result = array(
             $field[0] => $data[$prize_id][$field[0]],
             $field[1] => $data[$prize_id][$field[1]],
