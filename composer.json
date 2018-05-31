@@ -1,0 +1,21 @@
+{
+    "name": "hao/prize-sdk",
+    "homepage": "https://github.com/JZhao1020/prize-sdk",
+    "description": "php 抽奖处理",
+    "type": "library",
+    "authors": [
+        {
+            "name": "hao",
+            "email": "18816784184@163.com"
+        }
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Prize\\": "src"
+        }
+    },
+    "require": {
+        "php": ">=5.4"
+    }
+}
